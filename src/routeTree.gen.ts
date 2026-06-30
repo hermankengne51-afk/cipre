@@ -22,6 +22,19 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgramsSlugRouteImport } from './routes/programs_.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news_.$slug'
 import { Route as DocumentationIdRouteImport } from './routes/documentation_.$id'
+import { Route as ApiVolunteerRouteImport } from './routes/api/volunteer'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminAuthenticatedRouteRouteImport } from './routes/admin/_authenticated/route'
+import { Route as AdminAuthenticatedIndexRouteImport } from './routes/admin/_authenticated/index'
+import { Route as AdminAuthenticatedVolunteersRouteImport } from './routes/admin/_authenticated/volunteers'
+import { Route as AdminAuthenticatedProgramsRouteImport } from './routes/admin/_authenticated/programs'
+import { Route as AdminAuthenticatedPartnersRouteImport } from './routes/admin/_authenticated/partners'
+import { Route as AdminAuthenticatedNewsRouteImport } from './routes/admin/_authenticated/news'
+import { Route as AdminAuthenticatedMessagesRouteImport } from './routes/admin/_authenticated/messages'
+import { Route as AdminAuthenticatedMediaRouteImport } from './routes/admin/_authenticated/media'
+import { Route as AdminAuthenticatedEventsRouteImport } from './routes/admin/_authenticated/events'
+import { Route as AdminAuthenticatedDocumentsRouteImport } from './routes/admin/_authenticated/documents'
 
 const VolunteerRoute = VolunteerRouteImport.update({
   id: '/volunteer',
@@ -88,6 +101,77 @@ const DocumentationIdRoute = DocumentationIdRouteImport.update({
   path: '/documentation/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiVolunteerRoute = ApiVolunteerRouteImport.update({
+  id: '/api/volunteer',
+  path: '/api/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthenticatedRouteRoute = AdminAuthenticatedRouteRouteImport.update({
+  id: '/admin/_authenticated',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthenticatedIndexRoute = AdminAuthenticatedIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminAuthenticatedRouteRoute,
+} as any)
+const AdminAuthenticatedVolunteersRoute =
+  AdminAuthenticatedVolunteersRouteImport.update({
+    id: '/volunteers',
+    path: '/volunteers',
+    getParentRoute: () => AdminAuthenticatedRouteRoute,
+  } as any)
+const AdminAuthenticatedProgramsRoute =
+  AdminAuthenticatedProgramsRouteImport.update({
+    id: '/programs',
+    path: '/programs',
+    getParentRoute: () => AdminAuthenticatedRouteRoute,
+  } as any)
+const AdminAuthenticatedPartnersRoute =
+  AdminAuthenticatedPartnersRouteImport.update({
+    id: '/partners',
+    path: '/partners',
+    getParentRoute: () => AdminAuthenticatedRouteRoute,
+  } as any)
+const AdminAuthenticatedNewsRoute = AdminAuthenticatedNewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => AdminAuthenticatedRouteRoute,
+} as any)
+const AdminAuthenticatedMessagesRoute =
+  AdminAuthenticatedMessagesRouteImport.update({
+    id: '/messages',
+    path: '/messages',
+    getParentRoute: () => AdminAuthenticatedRouteRoute,
+  } as any)
+const AdminAuthenticatedMediaRoute = AdminAuthenticatedMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AdminAuthenticatedRouteRoute,
+} as any)
+const AdminAuthenticatedEventsRoute =
+  AdminAuthenticatedEventsRouteImport.update({
+    id: '/events',
+    path: '/events',
+    getParentRoute: () => AdminAuthenticatedRouteRoute,
+  } as any)
+const AdminAuthenticatedDocumentsRoute =
+  AdminAuthenticatedDocumentsRouteImport.update({
+    id: '/documents',
+    path: '/documents',
+    getParentRoute: () => AdminAuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -100,9 +184,22 @@ export interface FileRoutesByFullPath {
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
   '/volunteer': typeof VolunteerRoute
+  '/admin': typeof AdminAuthenticatedRouteRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/volunteer': typeof ApiVolunteerRoute
   '/documentation/$id': typeof DocumentationIdRoute
   '/news/$slug': typeof NewsSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/admin/documents': typeof AdminAuthenticatedDocumentsRoute
+  '/admin/events': typeof AdminAuthenticatedEventsRoute
+  '/admin/media': typeof AdminAuthenticatedMediaRoute
+  '/admin/messages': typeof AdminAuthenticatedMessagesRoute
+  '/admin/news': typeof AdminAuthenticatedNewsRoute
+  '/admin/partners': typeof AdminAuthenticatedPartnersRoute
+  '/admin/programs': typeof AdminAuthenticatedProgramsRoute
+  '/admin/volunteers': typeof AdminAuthenticatedVolunteersRoute
+  '/admin/': typeof AdminAuthenticatedIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -115,9 +212,21 @@ export interface FileRoutesByTo {
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
   '/volunteer': typeof VolunteerRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/volunteer': typeof ApiVolunteerRoute
   '/documentation/$id': typeof DocumentationIdRoute
   '/news/$slug': typeof NewsSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/admin/documents': typeof AdminAuthenticatedDocumentsRoute
+  '/admin/events': typeof AdminAuthenticatedEventsRoute
+  '/admin/media': typeof AdminAuthenticatedMediaRoute
+  '/admin/messages': typeof AdminAuthenticatedMessagesRoute
+  '/admin/news': typeof AdminAuthenticatedNewsRoute
+  '/admin/partners': typeof AdminAuthenticatedPartnersRoute
+  '/admin/programs': typeof AdminAuthenticatedProgramsRoute
+  '/admin/volunteers': typeof AdminAuthenticatedVolunteersRoute
+  '/admin': typeof AdminAuthenticatedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -131,9 +240,22 @@ export interface FileRoutesById {
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
   '/volunteer': typeof VolunteerRoute
+  '/admin/_authenticated': typeof AdminAuthenticatedRouteRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/volunteer': typeof ApiVolunteerRoute
   '/documentation_/$id': typeof DocumentationIdRoute
   '/news_/$slug': typeof NewsSlugRoute
   '/programs_/$slug': typeof ProgramsSlugRoute
+  '/admin/_authenticated/documents': typeof AdminAuthenticatedDocumentsRoute
+  '/admin/_authenticated/events': typeof AdminAuthenticatedEventsRoute
+  '/admin/_authenticated/media': typeof AdminAuthenticatedMediaRoute
+  '/admin/_authenticated/messages': typeof AdminAuthenticatedMessagesRoute
+  '/admin/_authenticated/news': typeof AdminAuthenticatedNewsRoute
+  '/admin/_authenticated/partners': typeof AdminAuthenticatedPartnersRoute
+  '/admin/_authenticated/programs': typeof AdminAuthenticatedProgramsRoute
+  '/admin/_authenticated/volunteers': typeof AdminAuthenticatedVolunteersRoute
+  '/admin/_authenticated/': typeof AdminAuthenticatedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -148,9 +270,22 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/programs'
     | '/volunteer'
+    | '/admin'
+    | '/admin/login'
+    | '/api/contact'
+    | '/api/volunteer'
     | '/documentation/$id'
     | '/news/$slug'
     | '/programs/$slug'
+    | '/admin/documents'
+    | '/admin/events'
+    | '/admin/media'
+    | '/admin/messages'
+    | '/admin/news'
+    | '/admin/partners'
+    | '/admin/programs'
+    | '/admin/volunteers'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -163,9 +298,21 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/programs'
     | '/volunteer'
+    | '/admin/login'
+    | '/api/contact'
+    | '/api/volunteer'
     | '/documentation/$id'
     | '/news/$slug'
     | '/programs/$slug'
+    | '/admin/documents'
+    | '/admin/events'
+    | '/admin/media'
+    | '/admin/messages'
+    | '/admin/news'
+    | '/admin/partners'
+    | '/admin/programs'
+    | '/admin/volunteers'
+    | '/admin'
   id:
     | '__root__'
     | '/'
@@ -178,9 +325,22 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/programs'
     | '/volunteer'
+    | '/admin/_authenticated'
+    | '/admin/login'
+    | '/api/contact'
+    | '/api/volunteer'
     | '/documentation_/$id'
     | '/news_/$slug'
     | '/programs_/$slug'
+    | '/admin/_authenticated/documents'
+    | '/admin/_authenticated/events'
+    | '/admin/_authenticated/media'
+    | '/admin/_authenticated/messages'
+    | '/admin/_authenticated/news'
+    | '/admin/_authenticated/partners'
+    | '/admin/_authenticated/programs'
+    | '/admin/_authenticated/volunteers'
+    | '/admin/_authenticated/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -194,6 +354,10 @@ export interface RootRouteChildren {
   PartnershipsRoute: typeof PartnershipsRoute
   ProgramsRoute: typeof ProgramsRoute
   VolunteerRoute: typeof VolunteerRoute
+  AdminAuthenticatedRouteRoute: typeof AdminAuthenticatedRouteRouteWithChildren
+  AdminLoginRoute: typeof AdminLoginRoute
+  ApiContactRoute: typeof ApiContactRoute
+  ApiVolunteerRoute: typeof ApiVolunteerRoute
   DocumentationIdRoute: typeof DocumentationIdRoute
   NewsSlugRoute: typeof NewsSlugRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
@@ -292,8 +456,129 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocumentationIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/volunteer': {
+      id: '/api/volunteer'
+      path: '/api/volunteer'
+      fullPath: '/api/volunteer'
+      preLoaderRoute: typeof ApiVolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_authenticated': {
+      id: '/admin/_authenticated'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminAuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_authenticated/': {
+      id: '/admin/_authenticated/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminAuthenticatedIndexRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/volunteers': {
+      id: '/admin/_authenticated/volunteers'
+      path: '/volunteers'
+      fullPath: '/admin/volunteers'
+      preLoaderRoute: typeof AdminAuthenticatedVolunteersRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/programs': {
+      id: '/admin/_authenticated/programs'
+      path: '/programs'
+      fullPath: '/admin/programs'
+      preLoaderRoute: typeof AdminAuthenticatedProgramsRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/partners': {
+      id: '/admin/_authenticated/partners'
+      path: '/partners'
+      fullPath: '/admin/partners'
+      preLoaderRoute: typeof AdminAuthenticatedPartnersRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/news': {
+      id: '/admin/_authenticated/news'
+      path: '/news'
+      fullPath: '/admin/news'
+      preLoaderRoute: typeof AdminAuthenticatedNewsRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/messages': {
+      id: '/admin/_authenticated/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminAuthenticatedMessagesRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/media': {
+      id: '/admin/_authenticated/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AdminAuthenticatedMediaRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/events': {
+      id: '/admin/_authenticated/events'
+      path: '/events'
+      fullPath: '/admin/events'
+      preLoaderRoute: typeof AdminAuthenticatedEventsRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
+    '/admin/_authenticated/documents': {
+      id: '/admin/_authenticated/documents'
+      path: '/documents'
+      fullPath: '/admin/documents'
+      preLoaderRoute: typeof AdminAuthenticatedDocumentsRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
   }
 }
+
+interface AdminAuthenticatedRouteRouteChildren {
+  AdminAuthenticatedDocumentsRoute: typeof AdminAuthenticatedDocumentsRoute
+  AdminAuthenticatedEventsRoute: typeof AdminAuthenticatedEventsRoute
+  AdminAuthenticatedMediaRoute: typeof AdminAuthenticatedMediaRoute
+  AdminAuthenticatedMessagesRoute: typeof AdminAuthenticatedMessagesRoute
+  AdminAuthenticatedNewsRoute: typeof AdminAuthenticatedNewsRoute
+  AdminAuthenticatedPartnersRoute: typeof AdminAuthenticatedPartnersRoute
+  AdminAuthenticatedProgramsRoute: typeof AdminAuthenticatedProgramsRoute
+  AdminAuthenticatedVolunteersRoute: typeof AdminAuthenticatedVolunteersRoute
+  AdminAuthenticatedIndexRoute: typeof AdminAuthenticatedIndexRoute
+}
+
+const AdminAuthenticatedRouteRouteChildren: AdminAuthenticatedRouteRouteChildren =
+  {
+    AdminAuthenticatedDocumentsRoute: AdminAuthenticatedDocumentsRoute,
+    AdminAuthenticatedEventsRoute: AdminAuthenticatedEventsRoute,
+    AdminAuthenticatedMediaRoute: AdminAuthenticatedMediaRoute,
+    AdminAuthenticatedMessagesRoute: AdminAuthenticatedMessagesRoute,
+    AdminAuthenticatedNewsRoute: AdminAuthenticatedNewsRoute,
+    AdminAuthenticatedPartnersRoute: AdminAuthenticatedPartnersRoute,
+    AdminAuthenticatedProgramsRoute: AdminAuthenticatedProgramsRoute,
+    AdminAuthenticatedVolunteersRoute: AdminAuthenticatedVolunteersRoute,
+    AdminAuthenticatedIndexRoute: AdminAuthenticatedIndexRoute,
+  }
+
+const AdminAuthenticatedRouteRouteWithChildren =
+  AdminAuthenticatedRouteRoute._addFileChildren(
+    AdminAuthenticatedRouteRouteChildren,
+  )
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -306,6 +591,10 @@ const rootRouteChildren: RootRouteChildren = {
   PartnershipsRoute: PartnershipsRoute,
   ProgramsRoute: ProgramsRoute,
   VolunteerRoute: VolunteerRoute,
+  AdminAuthenticatedRouteRoute: AdminAuthenticatedRouteRouteWithChildren,
+  AdminLoginRoute: AdminLoginRoute,
+  ApiContactRoute: ApiContactRoute,
+  ApiVolunteerRoute: ApiVolunteerRoute,
   DocumentationIdRoute: DocumentationIdRoute,
   NewsSlugRoute: NewsSlugRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,

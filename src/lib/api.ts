@@ -1,4 +1,7 @@
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
+// L'API vit dans la même app TanStack Start (routes /api/*), donc l'URL de
+// base est vide par défaut (requête relative, même origine). VITE_API_URL ne
+// sert que si l'API est un jour déployée séparément.
+const API_URL = import.meta.env.VITE_API_URL ?? "";
 
 export class ApiError extends Error {
   constructor(

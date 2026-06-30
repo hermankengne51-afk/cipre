@@ -1,4 +1,10 @@
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  useRouterState,
+} from "@tanstack/react-router";
+import { Toaster } from "sonner";
 import { FloatingDonateButton } from "@/components/FloatingDonateButton";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -20,6 +26,25 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const isAdmin = useRouterState({
+    select: (state) => state.location.pathname.startsWith("/admin"),
+  });
+
+  if (isAdmin) {
+    return (
+      <html lang="fr">
+        <head>
+          <HeadContent />
+        </head>
+        <body>
+          {children}
+          <Toaster richColors />
+          <Scripts />
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en">
       <head>

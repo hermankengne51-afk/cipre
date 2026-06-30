@@ -52,102 +52,178 @@ export function HomePage() {
   }, [slides.length]);
 
   const stats = [
-    { label: "Years of Experience", value: "34+", icon: TrendingUp },
-    { label: "Projects Implemented", value: "450+", icon: Target },
-    { label: "Countries of Intervention", value: "12", icon: Globe },
-    { label: "Beneficiaries Reached", value: "2.5M+", icon: Users },
-    { label: "Volunteers & Partners", value: "850+", icon: HandHeart },
+    {
+      label: t("Years of Experience", "Années d'Expérience"),
+      value: "34+",
+      icon: TrendingUp,
+    },
+    {
+      label: t("Projects Implemented", "Projets Réalisés"),
+      value: "450+",
+      icon: Target,
+    },
+    {
+      label: t("Countries of Intervention", "Pays d'Intervention"),
+      value: "12",
+      icon: Globe,
+    },
+    {
+      label: t("Beneficiaries Reached", "Bénéficiaires Atteints"),
+      value: "2.5M+",
+      icon: Users,
+    },
+    {
+      label: t("Volunteers & Partners", "Bénévoles & Partenaires"),
+      value: "850+",
+      icon: HandHeart,
+    },
   ];
 
   const values = [
     {
-      title: "Integrity",
-      description:
+      title: t("Integrity", "Intégrité"),
+      description: t(
         "We uphold the highest standards of transparency and accountability in all our operations.",
+        "Nous maintenons les normes les plus élevées de transparence et de responsabilité dans toutes nos opérations.",
+      ),
       icon: Heart,
     },
     {
-      title: "Excellence",
-      description:
+      title: t("Excellence", "Excellence"),
+      description: t(
         "We pursue quality and rigor in our programs, research, and partnerships.",
+        "Nous recherchons la qualité et la rigueur dans nos programmes, nos recherches et nos partenariats.",
+      ),
       icon: Target,
     },
     {
-      title: "Inclusion",
-      description:
+      title: t("Inclusion", "Inclusion"),
+      description: t(
         "We ensure equitable participation of marginalized communities in development processes.",
+        "Nous garantissons une participation équitable des communautés marginalisées aux processus de développement.",
+      ),
       icon: Users,
     },
     {
-      title: "Innovation",
-      description:
+      title: t("Innovation", "Innovation"),
+      description: t(
         "We embrace creative solutions and evidence-based approaches to social challenges.",
+        "Nous adoptons des solutions créatives et des approches fondées sur des preuves face aux défis sociaux.",
+      ),
       icon: Eye,
     },
   ];
 
   const principles = [
-    "Rights-based approach to development",
-    "Gender equality and social inclusion",
-    "Community ownership and participation",
-    "Evidence-based programming and advocacy",
-    "Sustainable impact and systems change",
-    "Strategic partnerships and collaboration",
+    t(
+      "Rights-based approach to development",
+      "Approche du développement fondée sur les droits",
+    ),
+    t(
+      "Gender equality and social inclusion",
+      "Égalité des genres et inclusion sociale",
+    ),
+    t(
+      "Community ownership and participation",
+      "Appropriation et participation communautaires",
+    ),
+    t(
+      "Evidence-based programming and advocacy",
+      "Programmation et plaidoyer fondés sur des preuves",
+    ),
+    t(
+      "Sustainable impact and systems change",
+      "Impact durable et changement systémique",
+    ),
+    t(
+      "Strategic partnerships and collaboration",
+      "Partenariats stratégiques et collaboration",
+    ),
   ];
 
   const publications = [
     {
-      title: "Annual Report 2025 - Impact and Innovation",
+      title: t(
+        "Annual Report 2025 - Impact and Innovation",
+        "Rapport Annuel 2025 - Impact et Innovation",
+      ),
       year: "2025",
-      category: "Annual Report",
+      category: t("Annual Report", "Rapport Annuel"),
       id: "annual-2025",
-      excerpt:
+      excerpt: t(
         "Comprehensive overview of our achievements, challenges, and strategic direction for the coming years.",
+        "Aperçu complet de nos réalisations, défis et orientation stratégique pour les années à venir.",
+      ),
       image: awardCeremonyImage,
     },
     {
-      title: "Gender Equality in Education: A Five-Year Study",
+      title: t(
+        "Gender Equality in Education: A Five-Year Study",
+        "Égalité des Genres dans l'Éducation : Une Étude de Cinq Ans",
+      ),
       year: "2024",
-      category: "Research Study",
+      category: t("Research Study", "Étude de Recherche"),
       id: "gender-education-2024",
-      excerpt:
+      excerpt: t(
         "In-depth analysis of gender disparities in education and effective interventions to promote equality.",
+        "Analyse approfondie des disparités de genre dans l'éducation et des interventions efficaces pour promouvoir l'égalité.",
+      ),
       image: euEducationImage,
     },
     {
-      title: "Climate Adaptation Strategies for Smallholder Farmers",
+      title: t(
+        "Climate Adaptation Strategies for Smallholder Farmers",
+        "Stratégies d'Adaptation Climatique pour les Petits Agriculteurs",
+      ),
       year: "2024",
-      category: "Policy Brief",
+      category: t("Policy Brief", "Note de Politique"),
       id: "climate-adaptation-2024",
-      excerpt:
+      excerpt: t(
         "Evidence-based recommendations for building climate resilience in agricultural communities.",
+        "Recommandations fondées sur des preuves pour renforcer la résilience climatique des communautés agricoles.",
+      ),
       image: climateAgricultureImage,
     },
     {
-      title: "Youth Employment in Central Africa: Challenges and Opportunities",
+      title: t(
+        "Youth Employment in Central Africa: Challenges and Opportunities",
+        "Emploi des Jeunes en Afrique Centrale : Défis et Opportunités",
+      ),
       year: "2023",
-      category: "Evaluation",
+      category: t("Evaluation", "Évaluation"),
       id: "youth-employment-2023",
-      excerpt:
+      excerpt: t(
         "Analysis of youth employment trends and innovative solutions for job creation.",
+        "Analyse des tendances de l'emploi des jeunes et des solutions innovantes pour la création d'emplois.",
+      ),
       image: farmerAppImage,
     },
     {
-      title: "Women's Economic Empowerment: Best Practices from Cameroon",
+      title: t(
+        "Women's Economic Empowerment: Best Practices from Cameroon",
+        "Autonomisation Économique des Femmes : Meilleures Pratiques du Cameroun",
+      ),
       year: "2025",
-      category: "Case Study",
+      category: t("Case Study", "Étude de Cas"),
       id: "women-empowerment-2025",
-      excerpt:
+      excerpt: t(
         "Successful strategies and lessons learned from women's entrepreneurship programs.",
+        "Stratégies réussies et leçons tirées des programmes d'entrepreneuriat féminin.",
+      ),
       image: womenCooperativeImage,
     },
     {
-      title: "Digital Literacy for Rural Communities",
+      title: t(
+        "Digital Literacy for Rural Communities",
+        "Littératie Numérique pour les Communautés Rurales",
+      ),
       year: "2025",
-      category: "Research Study",
+      category: t("Research Study", "Étude de Recherche"),
       id: "digital-literacy-2025",
-      excerpt:
+      excerpt: t(
         "Innovative approaches to bridging the digital divide in remote areas.",
+        "Approches innovantes pour combler la fracture numérique dans les zones reculées.",
+      ),
       image:
         "https://images.unsplash.com/photo-1666281269793-da06484657e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBjaGlsZHJlbiUyMGNsYXNzcm9vbXxlbnwxfHx8fDE3NzAxOTc2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     },
@@ -155,51 +231,78 @@ export function HomePage() {
 
   const news = [
     {
-      title: "Women's Entrepreneurship Hub Yaoundé",
-      date: "Jan 15, 2026",
-      category: "Launch",
-      excerpt:
+      title: t(
+        "Women's Entrepreneurship Hub Yaoundé",
+        "Hub d'Entrepreneuriat Féminin de Yaoundé",
+      ),
+      date: t("Jan 15, 2026", "15 jan. 2026"),
+      category: t("Launch", "Lancement"),
+      excerpt: t(
         "The new hub will provide training, mentorship, and access to financing for 500 women entrepreneurs across Cameroon.",
+        "Le nouveau hub offrira formation, mentorat et accès au financement pour 500 femmes entrepreneures au Cameroun.",
+      ),
       image: womenCooperativeImage,
     },
     {
-      title: "EU Regional Education Initiative",
-      date: "Dec 20, 2025",
-      category: "Partnership",
-      excerpt:
+      title: t(
+        "EU Regional Education Initiative",
+        "Initiative Éducative Régionale de l'UE",
+      ),
+      date: t("Dec 20, 2025", "20 déc. 2025"),
+      category: t("Partnership", "Partenariat"),
+      excerpt: t(
         "New €12 million partnership will improve education quality and access for 200,000 children across Central Africa.",
+        "Un nouveau partenariat de 12 millions d'euros améliorera la qualité de l'éducation et l'accès pour 200 000 enfants en Afrique Centrale.",
+      ),
       image: euEducationImage,
     },
     {
-      title: "Climate Resilience Research",
-      date: "Nov 30, 2025",
-      category: "Research",
-      excerpt:
+      title: t("Climate Resilience Research", "Recherche sur la Résilience Climatique"),
+      date: t("Nov 30, 2025", "30 nov. 2025"),
+      category: t("Research", "Recherche"),
+      excerpt: t(
         "Five-year study reveals effective strategies for smallholder farmers to adapt to climate change.",
+        "Une étude de cinq ans révèle des stratégies efficaces pour les petits agriculteurs pour s'adapter au changement climatique.",
+      ),
       image: climateAgricultureImage,
     },
     {
-      title: "Maternal Health Program Expansion",
-      date: "Oct 18, 2025",
-      category: "Health",
-      excerpt:
+      title: t(
+        "Maternal Health Program Expansion",
+        "Expansion du Programme de Santé Maternelle",
+      ),
+      date: t("Oct 18, 2025", "18 oct. 2025"),
+      category: t("Health", "Santé"),
+      excerpt: t(
         "Expanding maternal health services to reach 10,000 mothers in rural communities.",
+        "Extension des services de santé maternelle pour atteindre 10 000 mères dans les communautés rurales.",
+      ),
       image: maternalHealthImage,
     },
     {
-      title: "Digital Innovation for Farmers",
-      date: "Sep 25, 2025",
-      category: "Technology",
-      excerpt:
+      title: t(
+        "Digital Innovation for Farmers",
+        "Innovation Numérique pour les Agriculteurs",
+      ),
+      date: t("Sep 25, 2025", "25 sep. 2025"),
+      category: t("Technology", "Technologie"),
+      excerpt: t(
         "New mobile app launched to help farmers access market information and weather forecasts.",
+        "Nouvelle application mobile lancée pour aider les agriculteurs à accéder aux informations de marché et aux prévisions météorologiques.",
+      ),
       image: farmerAppImage,
     },
     {
-      title: "Water Access Projects Complete",
-      date: "Aug 12, 2025",
-      category: "Infrastructure",
-      excerpt:
+      title: t(
+        "Water Access Projects Complete",
+        "Achèvement des Projets d'Accès à l'Eau",
+      ),
+      date: t("Aug 12, 2025", "12 août 2025"),
+      category: t("Infrastructure", "Infrastructure"),
+      excerpt: t(
         "Successfully completed water and sanitation projects serving 25,000 people.",
+        "Achèvement réussi des projets d'eau et d'assainissement desservant 25 000 personnes.",
+      ),
       image: waterSanitationImage,
     },
   ];
@@ -252,7 +355,7 @@ export function HomePage() {
                 className="bg-[#1B5E20] text-white hover:bg-[#2E7D32] shadow-lg"
               >
                 <Link to="/programs">
-                  Explore Our Programs
+                  {t("Explore Our Programs", "Explorer nos programmes")}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
@@ -264,9 +367,9 @@ export function HomePage() {
               >
                 <Link to="/documentation">
                   <span className="hidden sm:inline text-[#049945] font-bold">
-                    Access Documentation Center
+                    {t("Access Documentation Center", "Accéder au centre de documentation")}
                   </span>
-                  <span className="sm:hidden">Documentation</span>
+                  <span className="sm:hidden">{t("Documentation", "Documentation")}</span>
                   <FileText className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
@@ -276,8 +379,8 @@ export function HomePage() {
                 className="bg-[#D4AF37] text-white hover:bg-[#B8941F] shadow-lg"
               >
                 <Play className="mr-2 w-4 h-4 fill-current" />
-                <span className="hidden sm:inline">Take a Guided Tour</span>
-                <span className="sm:hidden">Guided Tour</span>
+                <span className="hidden sm:inline">{t("Take a Guided Tour", "Faire une visite guidée")}</span>
+                <span className="sm:hidden">{t("Guided Tour", "Visite guidée")}</span>
               </Button>
             </div>
           </div>
@@ -312,11 +415,12 @@ export function HomePage() {
       {/* Mission, Vision, Values */}
       <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
         <div className="text-center mb-8 lg:mb-16">
-          <h2 className="mb-3 lg:mb-4 text-[24px] font-bold">About CIPCRE</h2>
+          <h2 className="mb-3 lg:mb-4 text-[24px] font-bold">{t("About CIPCRE", "À propos du CIPCRE")}</h2>
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            For nearly three decades, CIPCRE has been at the forefront of social
-            transformation in Central Africa, working with communities,
-            governments, and partners to create sustainable change.
+            {t(
+              "For nearly three decades, CIPCRE has been at the forefront of social transformation in Central Africa, working with communities, governments, and partners to create sustainable change.",
+              "Depuis près de trois décennies, le CIPCRE est aux avant-gardes de la transformation sociale en Afrique Centrale, travaillant avec les communautés, les gouvernements et les partenaires pour créer un changement durable."
+            )}
           </p>
         </div>
 
@@ -326,12 +430,12 @@ export function HomePage() {
             <div className="w-12 h-12 bg-[#1B5E20] rounded flex items-center justify-center mb-4 lg:mb-6 mx-auto">
               <Target className="w-6 h-6 text-white" />
             </div>
-            <h3 className="mb-3 lg:mb-4 text-[20px] font-bold">Mission</h3>
+            <h3 className="mb-3 lg:mb-4 text-[20px] font-bold">{t("Mission", "Mission")}</h3>
             <p className="text-sm lg:text-base text-neutral-700 leading-relaxed">
-              To promote sustainable development and social justice through
-              knowledge creation, capacity building, and evidence-based advocacy
-              in partnership with communities and civil society organizations
-              across Africa.
+              {t(
+                "To promote sustainable development and social justice through knowledge creation, capacity building, and evidence-based advocacy in partnership with communities and civil society organizations across Africa.",
+                "Promouvoir le développement durable et la justice sociale à travers la création de connaissances, le renforcement des capacités et le plaidoyer fondé sur des preuves, en partenariat avec les communautés et les organisations de la société civile à travers l'Afrique."
+              )}
             </p>
           </div>
 
@@ -340,12 +444,12 @@ export function HomePage() {
             <div className="w-12 h-12 bg-[#1B5E20] rounded flex items-center justify-center mb-4 lg:mb-6 mx-auto">
               <Eye className="w-6 h-6 text-white" />
             </div>
-            <h3 className="mb-3 lg:mb-4 text-[20px] font-bold">Vision</h3>
+            <h3 className="mb-3 lg:mb-4 text-[20px] font-bold">{t("Vision", "Vision")}</h3>
             <p className="text-sm lg:text-base text-neutral-700 leading-relaxed">
-              A just and equitable Africa where all people, especially the most
-              marginalized, have access to quality education, economic
-              opportunities, and participate meaningfully in decisions that
-              affect their lives.
+              {t(
+                "A just and equitable Africa where all people, especially the most marginalized, have access to quality education, economic opportunities, and participate meaningfully in decisions that affect their lives.",
+                "Une Afrique juste et équitable où tous, en particulier les plus marginalisés, ont accès à une éducation de qualité, à des opportunités économiques et participent de manière significative aux décisions qui affectent leur vie."
+              )}
             </p>
           </div>
 
@@ -355,13 +459,13 @@ export function HomePage() {
               <Users className="w-6 h-6 text-white" />
             </div>
             <h3 className="mb-3 lg:mb-4 text-[20px] font-bold">
-              Established 1997
+              {t("Established 1997", "Créé en 1997")}
             </h3>
             <p className="text-sm lg:text-base text-neutral-700 leading-relaxed">
-              Founded in Yaoundé, Cameroon by a group of development
-              practitioners, researchers, and civil society leaders committed to
-              creating lasting social change through knowledge and collective
-              action.
+              {t(
+                "Founded in Yaoundé, Cameroon by a group of development practitioners, researchers, and civil society leaders committed to creating lasting social change through knowledge and collective action.",
+                "Fondé à Yaoundé, au Cameroun, par un groupe de praticiens du développement, de chercheurs et de leaders de la société civile engagés à créer un changement social durable par les connaissances et l'action collective."
+              )}
             </p>
           </div>
         </div>
@@ -369,7 +473,7 @@ export function HomePage() {
         {/* Values */}
         <div className="mb-12">
           <h2 className="mb-6 lg:mb-8 text-center text-[24px] font-bold">
-            Our Values
+            {t("Our Values", "Nos Valeurs")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {values.map((value) => {
@@ -393,10 +497,10 @@ export function HomePage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="mb-6 lg:mb-8">
             <h2 className="mb-2 text-[20px] font-bold">
-              Organizational Principles
+              {t("Organizational Principles", "Principes Organisationnels")}
             </h2>
             <p className="text-base lg:text-lg text-neutral-600 font-bold">
-              Core values guiding our approach to sustainable development
+              {t("Core values guiding our approach to sustainable development", "Valeurs fondamentales guidant notre approche du développement durable")}
             </p>
           </div>
 
@@ -468,11 +572,12 @@ export function HomePage() {
       {/* Key Programs Preview */}
       <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
         <div className="mb-8 lg:mb-12">
-          <h2 className="mb-2 lg:mb-3 text-[20px] font-bold">Our Programs</h2>
+          <h2 className="mb-2 lg:mb-3 text-[20px] font-bold">{t("Our Programs", "Nos Programmes")}</h2>
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl">
-            We implement integrated programs that address critical development
-            challenges across education, agriculture, economic empowerment, and
-            governance.
+            {t(
+              "We implement integrated programs that address critical development challenges across education, agriculture, economic empowerment, and governance.",
+              "Nous mettons en œuvre des programmes intégrés qui répondent aux défis cruciaux du développement dans l'éducation, l'agriculture, l'autonomisation économique et la gouvernance."
+            )}
           </p>
         </div>
 
@@ -499,23 +604,27 @@ export function HomePage() {
               <div className="p-6 lg:p-8">
                 {/* Title */}
                 <h3 className="mb-3 text-lg lg:text-xl font-bold text-neutral-900 leading-tight">
-                  Agriculture, Sustainable Entrepreneurship & Community Hygiene
+                  {t(
+                    "Agriculture, Sustainable Entrepreneurship & Community Hygiene",
+                    "Agriculture, Entrepreneuriat Durable & Hygiène Communautaire"
+                  )}
                 </h3>
 
                 {/* Description */}
                 <p className="text-sm lg:text-base text-neutral-600 mb-4 leading-relaxed">
-                  Promoting agroecological and organic value chains,
-                  eco-entrepreneurship for youth and women, and strengthening
-                  community resilience to climate change
+                  {t(
+                    "Promoting agroecological and organic value chains, eco-entrepreneurship for youth and women, and strengthening community resilience to climate change",
+                    "Promotion des filières agroécologiques et biologiques, de l'éco-entrepreneuriat pour les jeunes et les femmes, et renforcement de la résilience communautaire face au changement climatique"
+                  )}
                 </p>
 
                 {/* Footer with Badge and Arrow */}
                 <div className="flex items-center justify-between pt-4 border-t border-neutral-200">
                   <Badge className="bg-[#1B5E20]/10 text-[#1B5E20] border-none text-xs font-semibold">
-                    5 Regions
+                    {t("5 Regions", "5 Régions")}
                   </Badge>
                   <div className="flex items-center gap-2 text-[#1B5E20] text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                    <span>Learn More</span>
+                    <span>{t("Learn More", "En savoir plus")}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </div>
@@ -545,23 +654,24 @@ export function HomePage() {
               <div className="p-6 lg:p-8">
                 {/* Title */}
                 <h3 className="mb-3 text-lg lg:text-xl font-bold text-neutral-900 leading-tight">
-                  Peace & Social Cohesion
+                  {t("Peace & Social Cohesion", "Paix & Cohésion Sociale")}
                 </h3>
 
                 {/* Description */}
                 <p className="text-sm lg:text-base text-neutral-600 mb-4 leading-relaxed">
-                  Preventing drug use in schools, managing land and agropastoral
-                  conflicts, and promoting peace through community mediation and
-                  cultural activities
+                  {t(
+                    "Preventing drug use in schools, managing land and agropastoral conflicts, and promoting peace through community mediation and cultural activities",
+                    "Prévention de la consommation de drogues en milieu scolaire, gestion pacifique des conflits fonciers et agropastoraux, et promotion de la paix par la médiation communautaire et les activités culturelles"
+                  )}
                 </p>
 
                 {/* Footer with Badge and Arrow */}
                 <div className="flex items-center justify-between pt-4 border-t border-neutral-200">
                   <Badge className="bg-[#D4AF37]/10 text-[#D4AF37] border-none text-xs font-semibold">
-                    All Regions
+                    {t("All Regions", "Toutes les Régions")}
                   </Badge>
                   <div className="flex items-center gap-2 text-[#D4AF37] text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                    <span>Learn More</span>
+                    <span>{t("Learn More", "En savoir plus")}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </div>
@@ -591,23 +701,24 @@ export function HomePage() {
               <div className="p-6 lg:p-8">
                 {/* Title */}
                 <h3 className="mb-3 text-lg lg:text-xl font-bold text-neutral-900 leading-tight">
-                  Human Rights & Citizen Participation
+                  {t("Human Rights & Citizen Participation", "Droits Humains & Participation Citoyenne")}
                 </h3>
 
                 {/* Description */}
                 <p className="text-sm lg:text-base text-neutral-600 mb-4 leading-relaxed">
-                  Promoting positive parenting, protecting children against
-                  violence, and supporting youth participation in democratic
-                  processes
+                  {t(
+                    "Promoting positive parenting, protecting children against violence, and supporting youth participation in democratic processes",
+                    "Promotion de la parentalité positive, protection des enfants contre la violence, et soutien à la participation des jeunes dans les processus démocratiques"
+                  )}
                 </p>
 
                 {/* Footer with Badge and Arrow */}
                 <div className="flex items-center justify-between pt-4 border-t border-neutral-200">
                   <Badge className="bg-[#388E3C]/10 text-[#388E3C] border-none text-xs font-semibold">
-                    5 Regions
+                    {t("5 Regions", "5 Régions")}
                   </Badge>
                   <div className="flex items-center gap-2 text-[#388E3C] text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                    <span>Learn More</span>
+                    <span>{t("Learn More", "En savoir plus")}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </div>
@@ -624,7 +735,7 @@ export function HomePage() {
             className="bg-gradient-to-r from-[#1B5E20] to-[#2E7D32] text-white hover:from-[#2E7D32] hover:to-[#1B5E20] shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Link to="/programs">
-              Explore All Programs
+              {t("Explore All Programs", "Explorer tous les programmes")}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
@@ -637,10 +748,10 @@ export function HomePage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-6 lg:mb-8 gap-4">
             <div>
               <h2 className="mb-2 lg:mb-3 text-[20px] font-bold">
-                Institutional Documents
+                {t("Institutional Documents", "Documents Institutionnels")}
               </h2>
               <p className="text-sm lg:text-base text-neutral-600 font-bold">
-                Key institutional and policy documents
+                {t("Key institutional and policy documents", "Documents institutionnels et de politique clés")}
               </p>
             </div>
             <Button
@@ -650,7 +761,7 @@ export function HomePage() {
               className="lg:size-default"
             >
               <Link to="/documentation">
-                View All Documents
+                {t("View All Documents", "Voir tous les documents")}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -668,7 +779,7 @@ export function HomePage() {
                 </div>
 
                 <h4 className="mb-3 text-sm font-bold group-hover:text-[#1B5E20] transition-colors">
-                  Strategic Plan 2024-2028
+                  {t("Strategic Plan 2024-2028", "Plan Stratégique 2024-2028")}
                 </h4>
 
                 <div className="flex items-center gap-3 mb-4 text-xs text-neutral-500">
@@ -681,8 +792,10 @@ export function HomePage() {
                 </div>
 
                 <p className="text-xs text-neutral-600 mb-4 leading-relaxed line-clamp-2">
-                  Our strategic roadmap for sustainable development and social
-                  impact across Central Africa.
+                  {t(
+                    "Our strategic roadmap for sustainable development and social impact across Central Africa.",
+                    "Notre feuille de route stratégique pour le développement durable et l'impact social en Afrique Centrale."
+                  )}
                 </p>
 
                 <Button
@@ -691,7 +804,7 @@ export function HomePage() {
                   className="w-full text-xs group-hover:bg-[#1B5E20] group-hover:text-white group-hover:border-[#1B5E20] transition-all"
                 >
                   <Download className="w-3 h-3 mr-2" />
-                  Download PDF
+                  {t("Download PDF", "Télécharger le PDF")}
                 </Button>
               </div>
             </Card>
@@ -707,7 +820,7 @@ export function HomePage() {
                 </div>
 
                 <h4 className="mb-3 text-sm font-bold group-hover:text-[#D4AF37] transition-colors">
-                  Organizational Statutes
+                  {t("Organizational Statutes", "Statuts de l'Organisation")}
                 </h4>
 
                 <div className="flex items-center gap-3 mb-4 text-xs text-neutral-500">
@@ -720,8 +833,10 @@ export function HomePage() {
                 </div>
 
                 <p className="text-xs text-neutral-600 mb-4 leading-relaxed line-clamp-2">
-                  Official statutes defining our governance structure, mission,
-                  and operational framework.
+                  {t(
+                    "Official statutes defining our governance structure, mission, and operational framework.",
+                    "Statuts officiels définissant notre structure de gouvernance, notre mission et notre cadre opérationnel."
+                  )}
                 </p>
 
                 <Button
@@ -730,7 +845,7 @@ export function HomePage() {
                   className="w-full text-xs group-hover:bg-[#D4AF37] group-hover:text-white group-hover:border-[#D4AF37] transition-all"
                 >
                   <Download className="w-3 h-3 mr-2" />
-                  Download PDF
+                  {t("Download PDF", "Télécharger le PDF")}
                 </Button>
               </div>
             </Card>
@@ -746,7 +861,7 @@ export function HomePage() {
                 </div>
 
                 <h4 className="mb-3 text-sm font-bold group-hover:text-[#1B5E20] transition-colors">
-                  Code of Conduct
+                  {t("Code of Conduct", "Code de Conduite")}
                 </h4>
 
                 <div className="flex items-center gap-3 mb-4 text-xs text-neutral-500">
@@ -759,8 +874,10 @@ export function HomePage() {
                 </div>
 
                 <p className="text-xs text-neutral-600 mb-4 leading-relaxed line-clamp-2">
-                  Ethical guidelines and professional standards for staff,
-                  partners, and stakeholders.
+                  {t(
+                    "Ethical guidelines and professional standards for staff, partners, and stakeholders.",
+                    "Directives éthiques et normes professionnelles pour le personnel, les partenaires et les parties prenantes."
+                  )}
                 </p>
 
                 <Button
@@ -769,7 +886,7 @@ export function HomePage() {
                   className="w-full text-xs group-hover:bg-[#1B5E20] group-hover:text-white group-hover:border-[#1B5E20] transition-all"
                 >
                   <Download className="w-3 h-3 mr-2" />
-                  Download PDF
+                  {t("Download PDF", "Télécharger le PDF")}
                 </Button>
               </div>
             </Card>
@@ -785,7 +902,7 @@ export function HomePage() {
                 </div>
 
                 <h4 className="mb-3 text-sm font-bold group-hover:text-[#D4AF37] transition-colors">
-                  Financial Audit Report 2025
+                  {t("Financial Audit Report 2025", "Rapport d'Audit Financier 2025")}
                 </h4>
 
                 <div className="flex items-center gap-3 mb-4 text-xs text-neutral-500">
@@ -798,8 +915,10 @@ export function HomePage() {
                 </div>
 
                 <p className="text-xs text-neutral-600 mb-4 leading-relaxed line-clamp-2">
-                  Independent financial audit demonstrating transparency and
-                  accountability in resource management.
+                  {t(
+                    "Independent financial audit demonstrating transparency and accountability in resource management.",
+                    "Audit financier indépendant démontrant la transparence et la responsabilité dans la gestion des ressources."
+                  )}
                 </p>
 
                 <Button
@@ -808,7 +927,7 @@ export function HomePage() {
                   className="w-full text-xs group-hover:bg-[#D4AF37] group-hover:text-white group-hover:border-[#D4AF37] transition-all"
                 >
                   <Download className="w-3 h-3 mr-2" />
-                  Download PDF
+                  {t("Download PDF", "Télécharger le PDF")}
                 </Button>
               </div>
             </Card>
@@ -821,10 +940,10 @@ export function HomePage() {
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 lg:mb-12 gap-4">
           <div>
             <h2 className="mb-2 lg:mb-3 text-[20px] font-bold">
-              Latest Publications
+              {t("Latest Publications", "Dernières Publications")}
             </h2>
             <p className="text-base lg:text-lg text-neutral-600 font-bold">
-              Access our research, reports, and knowledge resources
+              {t("Access our research, reports, and knowledge resources", "Accédez à nos recherches, rapports et ressources de connaissances")}
             </p>
           </div>
           <Button
@@ -834,7 +953,7 @@ export function HomePage() {
             className="lg:size-default"
           >
             <Link to="/documentation">
-              View All Documents
+              {t("View All Documents", "Voir tous les documents")}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
@@ -894,10 +1013,10 @@ export function HomePage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 lg:mb-12 gap-4">
             <div>
               <h2 className="mb-2 lg:mb-3 text-[20px] font-bold">
-                Latest News
+                {t("Latest News", "Dernières Nouvelles")}
               </h2>
               <p className="text-base lg:text-lg text-neutral-600 font-bold">
-                Stay updated on our activities and impact
+                {t("Stay updated on our activities and impact", "Restez informé de nos activités et de notre impact")}
               </p>
             </div>
             <Button
@@ -907,7 +1026,7 @@ export function HomePage() {
               className="lg:size-default"
             >
               <Link to="/news">
-                View All News
+                {t("View All News", "Voir toutes les nouvelles")}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -974,11 +1093,13 @@ export function HomePage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="mb-8 lg:mb-12">
             <h2 className="mb-2 lg:mb-3 text-[20px] font-bold">
-              Our Impact in Action
+              {t("Our Impact in Action", "Notre Impact en Action")}
             </h2>
             <p className="text-base lg:text-lg text-neutral-600 max-w-3xl">
-              Key achievements and strategic partnerships driving change across
-              education, agriculture, health, and community development.
+              {t(
+                "Key achievements and strategic partnerships driving change across education, agriculture, health, and community development.",
+                "Réalisations clés et partenariats stratégiques stimulant le changement dans l'éducation, l'agriculture, la santé et le développement communautaire."
+              )}
             </p>
           </div>
 
@@ -998,22 +1119,24 @@ export function HomePage() {
 
                   {/* Title */}
                   <h3 className="mb-4 text-lg lg:text-xl font-bold group-hover:text-white transition-colors duration-300 leading-tight">
-                    EU Regional Education Partnership
+                    {t("EU Regional Education Partnership", "Partenariat Éducatif Régional de l'UE")}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-neutral-600 group-hover:text-white/90 mb-6 leading-relaxed flex-grow transition-colors duration-300">
-                    €12 million partnership improving education quality and
-                    access for 200,000 children across Central Africa
+                    {t(
+                      "€12 million partnership improving education quality and access for 200,000 children across Central Africa",
+                      "Partenariat de 12 millions d'euros améliorant la qualité et l'accès à l'éducation pour 200 000 enfants en Afrique Centrale"
+                    )}
                   </p>
 
                   {/* Footer with Badge and Arrow */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-200 group-hover:border-white/20 transition-colors duration-300">
                     <Badge className="bg-[#1B5E20]/10 text-[#1B5E20] border-none group-hover:bg-white/20 group-hover:text-white text-xs font-semibold transition-all duration-300">
-                      Partnership
+                      {t("Partnership", "Partenariat")}
                     </Badge>
                     <div className="flex items-center gap-2 text-[#1B5E20] group-hover:text-white text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t("Learn More", "En savoir plus")}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
@@ -1039,22 +1162,24 @@ export function HomePage() {
 
                   {/* Title */}
                   <h3 className="mb-4 text-lg lg:text-xl font-bold group-hover:text-white transition-colors duration-300 leading-tight">
-                    Climate-Resilient Agriculture
+                    {t("Climate-Resilient Agriculture", "Agriculture Résiliente au Climat")}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-neutral-600 group-hover:text-white/90 mb-6 leading-relaxed flex-grow transition-colors duration-300">
-                    Supporting 15,000 smallholder farmers across 8 regions with
-                    sustainable farming practices and climate adaptation
+                    {t(
+                      "Supporting 15,000 smallholder farmers across 8 regions with sustainable farming practices and climate adaptation",
+                      "Soutien à 15 000 petits agriculteurs dans 8 régions avec des pratiques agricoles durables et d'adaptation au climat"
+                    )}
                   </p>
 
                   {/* Footer with Badge and Arrow */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-200 group-hover:border-white/20 transition-colors duration-300">
                     <Badge className="bg-[#D4AF37]/10 text-[#D4AF37] border-none group-hover:bg-white/20 group-hover:text-white text-xs font-semibold transition-all duration-300">
-                      Agriculture
+                      {t("Agriculture", "Agriculture")}
                     </Badge>
                     <div className="flex items-center gap-2 text-[#D4AF37] group-hover:text-white text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t("Learn More", "En savoir plus")}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
@@ -1080,22 +1205,24 @@ export function HomePage() {
 
                   {/* Title */}
                   <h3 className="mb-4 text-lg lg:text-xl font-bold group-hover:text-white transition-colors duration-300 leading-tight">
-                    Digital Tools for Farmers
+                    {t("Digital Tools for Farmers", "Outils Numériques pour les Agriculteurs")}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-neutral-600 group-hover:text-white/90 mb-6 leading-relaxed flex-grow transition-colors duration-300">
-                    Mobile app with 10,000+ downloads connecting 50 villages
-                    with market information and weather forecasts
+                    {t(
+                      "Mobile app with 10,000+ downloads connecting 50 villages with market information and weather forecasts",
+                      "Application mobile avec plus de 10 000 téléchargements connectant 50 villages aux informations du marché et aux prévisions météo"
+                    )}
                   </p>
 
                   {/* Footer with Badge and Arrow */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-200 group-hover:border-white/20 transition-colors duration-300">
                     <Badge className="bg-[#1B5E20]/10 text-[#1B5E20] border-none group-hover:bg-white/20 group-hover:text-white text-xs font-semibold transition-all duration-300">
-                      Innovation
+                      {t("Innovation", "Innovation")}
                     </Badge>
                     <div className="flex items-center gap-2 text-[#1B5E20] group-hover:text-white text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t("Learn More", "En savoir plus")}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
@@ -1121,22 +1248,24 @@ export function HomePage() {
 
                   {/* Title */}
                   <h3 className="mb-4 text-lg lg:text-xl font-bold group-hover:text-white transition-colors duration-300 leading-tight">
-                    Maternal Health Services
+                    {t("Maternal Health Services", "Services de Santé Maternelle")}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-neutral-600 group-hover:text-white/90 mb-6 leading-relaxed flex-grow transition-colors duration-300">
-                    Expanding maternal health services to reach 10,000+ mothers
-                    in rural communities with 95% satisfaction rate
+                    {t(
+                      "Expanding maternal health services to reach 10,000+ mothers in rural communities with 95% satisfaction rate",
+                      "Extension des services de santé maternelle pour atteindre plus de 10 000 mères dans les communautés rurales avec un taux de satisfaction de 95%"
+                    )}
                   </p>
 
                   {/* Footer with Badge and Arrow */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-200 group-hover:border-white/20 transition-colors duration-300">
                     <Badge className="bg-[#D4AF37]/10 text-[#D4AF37] border-none group-hover:bg-white/20 group-hover:text-white text-xs font-semibold transition-all duration-300">
-                      Health
+                      {t("Health", "Santé")}
                     </Badge>
                     <div className="flex items-center gap-2 text-[#D4AF37] group-hover:text-white text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t("Learn More", "En savoir plus")}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
@@ -1162,22 +1291,24 @@ export function HomePage() {
 
                   {/* Title */}
                   <h3 className="mb-4 text-lg lg:text-xl font-bold group-hover:text-white transition-colors duration-300 leading-tight">
-                    Water & Sanitation Projects
+                    {t("Water & Sanitation Projects", "Projets d'Eau & d'Assainissement")}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-neutral-600 group-hover:text-white/90 mb-6 leading-relaxed flex-grow transition-colors duration-300">
-                    Serving 25,000 people through 45 constructed wells and
-                    comprehensive water access infrastructure
+                    {t(
+                      "Serving 25,000 people through 45 constructed wells and comprehensive water access infrastructure",
+                      "Desservir 25 000 personnes grâce à 45 puits construits et une infrastructure complète d'accès à l'eau"
+                    )}
                   </p>
 
                   {/* Footer with Badge and Arrow */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-200 group-hover:border-white/20 transition-colors duration-300">
                     <Badge className="bg-[#1B5E20]/10 text-[#1B5E20] border-none group-hover:bg-white/20 group-hover:text-white text-xs font-semibold transition-all duration-300">
-                      Infrastructure
+                      {t("Infrastructure", "Infrastructure")}
                     </Badge>
                     <div className="flex items-center gap-2 text-[#1B5E20] group-hover:text-white text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t("Learn More", "En savoir plus")}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
@@ -1203,22 +1334,24 @@ export function HomePage() {
 
                   {/* Title */}
                   <h3 className="mb-4 text-lg lg:text-xl font-bold group-hover:text-white transition-colors duration-300 leading-tight">
-                    Women's Economic Empowerment
+                    {t("Women's Economic Empowerment", "Autonomisation Économique des Femmes")}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-neutral-600 group-hover:text-white/90 mb-6 leading-relaxed flex-grow transition-colors duration-300">
-                    Supporting 2,500 women through 150 cooperative groups with
-                    training, financing, and market access
+                    {t(
+                      "Supporting 2,500 women through 150 cooperative groups with training, financing, and market access",
+                      "Soutien à 2 500 femmes à travers 150 groupes coopératifs avec formation, financement et accès au marché"
+                    )}
                   </p>
 
                   {/* Footer with Badge and Arrow */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-200 group-hover:border-white/20 transition-colors duration-300">
                     <Badge className="bg-[#D4AF37]/10 text-[#D4AF37] border-none group-hover:bg-white/20 group-hover:text-white text-xs font-semibold transition-all duration-300">
-                      Empowerment
+                      {t("Empowerment", "Autonomisation")}
                     </Badge>
                     <div className="flex items-center gap-2 text-[#D4AF37] group-hover:text-white text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t("Learn More", "En savoir plus")}</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
@@ -1239,7 +1372,7 @@ export function HomePage() {
               className="border-2 border-[#1B5E20] text-[#1B5E20] hover:bg-[#1B5E20] hover:text-white"
             >
               <Link to="/partnerships">
-                View All Partnerships & Achievements
+                {t("View All Partnerships & Achievements", "Voir tous les partenariats & réalisations")}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
