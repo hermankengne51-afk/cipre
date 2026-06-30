@@ -31,22 +31,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-neutral-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-28">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 lg:gap-3">
+          <Link to="/" className="flex items-center">
             <img
               src={cipcreLogoImage}
-              alt="CIPCRE Logo"
-              className="w-8 h-8 lg:w-10 lg:h-10 object-contain"
+              alt="CIPCRE"
+              className="w-16 h-16 lg:w-24 lg:h-24 object-contain"
             />
-            <div>
-              <div className="font-semibold text-[#1B5E20] text-sm lg:text-base">
-                {t("header.cipcre")}
-              </div>
-              <div className="text-[10px] lg:text-xs text-neutral-600 hidden sm:block">
-                {t("header.fullName")}
-              </div>
-            </div>
           </Link>
 
           {/* Desktop Navigation & Language Selector */}

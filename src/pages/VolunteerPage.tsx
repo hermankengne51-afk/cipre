@@ -11,51 +11,69 @@ import {
   Phone,
   Users,
 } from "lucide-react";
+import { AlertCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { useLanguage } from "../contexts/LanguageContext";
+import { ApiError, apiPost } from "../lib/api";
+
+const initialFormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  country: "",
+  city: "",
+  areaOfInterest: "",
+  availability: "",
+  experience: "",
+  motivation: "",
+};
 
 export function VolunteerPage() {
-  const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    country: "",
-    city: "",
-    areaOfInterest: "",
-    availability: "",
-    experience: "",
-    motivation: "",
-  });
+  const { t, language } = useLanguage();
+  const [formData, setFormData] = useState(initialFormState);
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [fieldErrors, setFieldErrors] = useState<
+    Record<string, string[]> | undefined
+  >();
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici, vous pouvez ajouter la logique d'envoi du formulaire
-    console.log("Volunteer application:", formData);
-    setIsSubmitted(true);
+    setStatus("submitting");
+    setFieldErrors(undefined);
+    setErrorMessage("");
 
-    // Réinitialiser le formulaire après 3 secondes
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        country: "",
-        city: "",
-        areaOfInterest: "",
-        availability: "",
-        experience: "",
-        motivation: "",
-      });
-    }, 3000);
+    // On n'envoie pas le champ optionnel "experience" s'il est vide, pour
+    // rester cohérent avec le schéma Zod côté serveur (.optional()).
+    const payload = Object.fromEntries(
+      Object.entries(formData).filter(([, value]) => value.trim() !== ""),
+    );
+
+    try {
+      await apiPost("/api/volunteer", payload);
+      setStatus("success");
+      setFormData(initialFormState);
+    } catch (err) {
+      setStatus("error");
+      if (err instanceof ApiError) {
+        setErrorMessage(err.message);
+        setFieldErrors(err.fieldErrors);
+      } else {
+        setErrorMessage(
+          t(
+            "An error occurred. Please try again.",
+            "Une erreur est survenue. Réessayez.",
+          ),
+        );
+      }
+    }
   };
 
   const handleChange = (
@@ -314,7 +332,7 @@ export function VolunteerPage() {
             </p>
 
             <div className="space-y-3">
-              {(t("en") === "en" ? requirements : requirementsFr).map(
+              {(language === "en" ? requirements : requirementsFr).map(
                 (req, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#1B5E20] shrink-0 mt-0.5" />
@@ -339,7 +357,7 @@ export function VolunteerPage() {
               </p>
             </div>
 
-            {isSubmitted ? (
+            {status === "success" ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-10 h-10 text-green-600" />
@@ -347,15 +365,28 @@ export function VolunteerPage() {
                 <h4 className="text-xl font-bold text-neutral-900 mb-2">
                   {t("Application Submitted!", "Candidature Soumise !")}
                 </h4>
-                <p className="text-sm text-neutral-600">
+                <p className="text-sm text-neutral-600 mb-6">
                   {t(
                     "Thank you for your interest. We'll review your application and contact you soon.",
                     "Merci pour votre intérêt. Nous examinerons votre candidature et vous contacterons bientôt.",
                   )}
                 </p>
+                <Button variant="outline" onClick={() => setStatus("idle")}>
+                  {t(
+                    "Submit another application",
+                    "Soumettre une autre candidature",
+                  )}
+                </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                {status === "error" && (
+                  <div className="flex items-start gap-2 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 mb-1.5">
@@ -369,6 +400,11 @@ export function VolunteerPage() {
                       required
                       className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-[#1B5E20] focus:border-transparent outline-none transition-all"
                     />
+                    {fieldErrors?.firstName && (
+                      <p className="text-xs text-red-600 mt-1">
+                        {fieldErrors.firstName[0]}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 mb-1.5">
@@ -382,6 +418,11 @@ export function VolunteerPage() {
                       required
                       className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-[#1B5E20] focus:border-transparent outline-none transition-all"
                     />
+                    {fieldErrors?.lastName && (
+                      <p className="text-xs text-red-600 mt-1">
+                        {fieldErrors.lastName[0]}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -397,6 +438,11 @@ export function VolunteerPage() {
                     required
                     className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-[#1B5E20] focus:border-transparent outline-none transition-all"
                   />
+                  {fieldErrors?.email && (
+                    <p className="text-xs text-red-600 mt-1">
+                      {fieldErrors.email[0]}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -411,6 +457,11 @@ export function VolunteerPage() {
                     required
                     className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-[#1B5E20] focus:border-transparent outline-none transition-all"
                   />
+                  {fieldErrors?.phone && (
+                    <p className="text-xs text-red-600 mt-1">
+                      {fieldErrors.phone[0]}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -540,12 +591,21 @@ export function VolunteerPage() {
                       "Partagez votre motivation et ce que vous espérez accomplir...",
                     )}
                   />
+                  {fieldErrors?.motivation && (
+                    <p className="text-xs text-red-600 mt-1">
+                      {fieldErrors.motivation[0]}
+                    </p>
+                  )}
                 </div>
 
                 <Button
                   type="submit"
+                  disabled={status === "submitting"}
                   className="w-full bg-[#1B5E20] hover:bg-[#2E7D32] text-white py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
+                  {status === "submitting" ? (
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                  ) : null}
                   {t("Submit Application", "Soumettre la Candidature")}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

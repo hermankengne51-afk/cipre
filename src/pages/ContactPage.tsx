@@ -105,12 +105,12 @@ export function ContactPage() {
   ];
 
   const departments = [
-    { name: "General Inquiries", email: "info@cipcre.org" },
-    { name: "Programs", email: "programs@cipcre.org" },
-    { name: "Research & Documentation", email: "research@cipcre.org" },
-    { name: "Partnerships", email: "partnerships@cipcre.org" },
-    { name: "Media & Communications", email: "media@cipcre.org" },
-    { name: "Human Resources", email: "hr@cipcre.org" },
+    { name: t("General Inquiries", "Demandes Générales"), email: "info@cipcre.org" },
+    { name: t("Programs", "Programmes"), email: "programs@cipcre.org" },
+    { name: t("Research & Documentation", "Recherche & Documentation"), email: "research@cipcre.org" },
+    { name: t("Partnerships", "Partenariats"), email: "partnerships@cipcre.org" },
+    { name: t("Media & Communications", "Média & Communication"), email: "media@cipcre.org" },
+    { name: t("Human Resources", "Ressources Humaines"), email: "hr@cipcre.org" },
   ];
 
   return (
@@ -277,13 +277,13 @@ export function ContactPage() {
                         htmlFor="organization"
                         className="text-sm font-semibold text-neutral-700"
                       >
-                        Organization
+                        {t("Organization", "Organisation")}
                       </Label>
                       <Input
                         id="organization"
                         value={formData.organization}
                         onChange={handleChange}
-                        placeholder="Your organization name"
+                        placeholder={t("Your organization name", "Le nom de votre organisation")}
                         className="mt-2 border-neutral-300 focus:border-[#1B5E20] focus:ring-[#1B5E20]/20 transition-all"
                       />
                     </div>
@@ -361,7 +361,7 @@ export function ContactPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1B5E20]/10 to-[#2E7D32]/10 flex items-center justify-center">
                     <Building2 className="w-4 h-4 text-[#1B5E20]" />
                   </div>
-                  <h3 className="text-lg">Headquarters</h3>
+                  <h3 className="text-lg">{t("Headquarters", "Direction Générale")}</h3>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#1B5E20]/5 transition-colors">
@@ -370,9 +370,9 @@ export function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm text-neutral-700 font-medium">
-                        BP 1256, Yaoundé
+                        {t("BP 1256, Yaoundé", "BP 1256, Bafoussam")}
                       </p>
-                      <p className="text-sm text-neutral-600">Cameroon</p>
+                      <p className="text-sm text-neutral-600">{t("Cameroon", "Cameroun")}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#1B5E20]/5 transition-colors">
@@ -399,7 +399,7 @@ export function ContactPage() {
                       <Clock className="w-4 h-4 text-[#1B5E20]" />
                     </div>
                     <p className="text-sm text-neutral-700 font-medium pt-1">
-                      Mon-Fri: 8:00 AM - 5:00 PM
+                      {t("Mon-Fri: 8:00 AM - 5:00 PM", "Lun-Ven : 8h00 - 17h00")}
                     </p>
                   </div>
                 </div>
@@ -414,7 +414,7 @@ export function ContactPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D4AF37]/20 to-[#D4AF37]/10 flex items-center justify-center">
                     <Mail className="w-4 h-4 text-[#D4AF37]" />
                   </div>
-                  <h3 className="text-lg">Departments</h3>
+                  <h3 className="text-lg">{t("Departments", "Départements")}</h3>
                 </div>
                 <div className="space-y-3">
                   {departments.map((dept) => (
@@ -450,13 +450,12 @@ export function ContactPage() {
             <div className="inline-flex items-center gap-2 bg-[#1B5E20]/5 px-5 py-2 rounded-full border border-[#1B5E20]/20 mb-4">
               <Building2 className="w-4 h-4 text-[#1B5E20]" />
               <span className="text-sm font-medium text-[#1B5E20]">
-                Global Presence
+                {t("Global Presence", "Présence Globale")}
               </span>
             </div>
-            <h2 className="mb-4">Our Offices</h2>
+            <h2 className="mb-4">{t("Our Offices", "Nos Bureaux")}</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
-              CIPCRE operates across Central Africa with offices in key
-              locations
+              {t("CIPCRE operates across Central Africa with offices in key locations", "Le CIPCRE opère en Afrique Centrale avec des bureaux dans des emplacements clés")}
             </p>
           </div>
 
@@ -514,11 +513,11 @@ export function ContactPage() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-[#1B5E20]/5 px-5 py-2 rounded-full border border-[#1B5E20]/20 mb-4">
             <MapPin className="w-4 h-4 text-[#1B5E20]" />
-            <span className="text-sm font-medium text-[#1B5E20]">Location</span>
+            <span className="text-sm font-medium text-[#1B5E20]">{t("Location", "Localisation")}</span>
           </div>
-          <h2 className="mb-2">Find Us</h2>
+          <h2 className="mb-2">{t("Find Us", "Nous Trouver")}</h2>
           <p className="text-neutral-600">
-            Visit our headquarters in Yaoundé, Cameroon
+            {t("Visit our headquarters in Yaoundé, Cameroon", "Visitez notre siège à Yaoundé, Cameroun")}
           </p>
         </div>
 
@@ -549,14 +548,16 @@ export function ContactPage() {
             <div>
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 mb-3">
                 <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-                <span className="text-xs font-medium">Our Commitment</span>
+                <span className="text-xs font-medium">{t("Our Commitment", "Notre Engagement")}</span>
               </div>
               <h3 className="mb-2 text-3xl text-white">
-                Transparency & Accountability
+                {t("Transparency & Accountability", "Transparence & Responsabilité")}
               </h3>
               <p className="text-neutral-100 text-lg">
-                Access our institutional documents, financial reports, and
-                accountability policies
+                {t(
+                  "Access our institutional documents, financial reports, and accountability policies",
+                  "Accédez à nos documents institutionnels, rapports financiers et politiques de responsabilité"
+                )}
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -564,19 +565,19 @@ export function ContactPage() {
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-[#1B5E20] transition-all duration-300 backdrop-blur-sm shadow-lg px-6 py-6 text-[#037618]"
               >
-                Annual Reports
+                {t("Annual Reports", "Rapports Annuels")}
               </Button>
               <Button
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-[#1B5E20] transition-all duration-300 backdrop-blur-sm shadow-lg px-6 py-6 text-[#059611]"
               >
-                Financial Statements
+                {t("Financial Statements", "États Financiers")}
               </Button>
               <Button
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-[#1B5E20] transition-all duration-300 backdrop-blur-sm shadow-lg px-6 py-6 text-[#01861a]"
               >
-                Policies & Procedures
+                {t("Policies & Procedures", "Politiques & Procédures")}
               </Button>
             </div>
           </div>

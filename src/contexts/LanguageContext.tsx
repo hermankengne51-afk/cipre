@@ -13,7 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("fr");
 
   const t = (key: string, fallbackOrFr?: string): string => {
     // Si fallbackOrFr est fourni, utiliser le système simple en/fr
@@ -53,8 +53,8 @@ const translations = {
     header: {
       home: "Home",
       programs: "Programs",
-      documentation: "Documentation Center",
-      news: "News & Publications",
+      documentation: "Document",
+      news: "News",
       events: "Events",
       media: "Media",
       partnerships: "Partnerships",
@@ -485,8 +485,8 @@ const translations = {
     header: {
       home: "Accueil",
       programs: "Programmes",
-      documentation: "Centre de Documentation",
-      news: "Actualités & Publications",
+      documentation: "Document",
+      news: "Actualité",
       events: "Événements",
       media: "Média",
       partnerships: "Partenariats",
