@@ -1,6 +1,7 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { Languages, Loader2, Pencil, Plus, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { useAdminAuth } from "@/contexts/auth-context";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -106,6 +107,9 @@ function LangBanner({
 function RouteComponent() {
   const { items } = Route.useLoaderData();
   const router = useRouter();
+  const auth = useAdminAuth();
+  const canDelete = (createdBy: string | null) =>
+    auth.role === "SUPER_ADMIN" || createdBy === auth.email;
 
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<DrizzleMediaItem | null>(null);
@@ -250,9 +254,11 @@ function RouteComponent() {
                   <Button variant="ghost" size="icon" onClick={() => openEdit(item)}>
                     <Pencil className="w-4 h-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" onClick={() => handleDelete(item)}>
-                    <Trash2 className="w-4 h-4 text-red-500" />
-                  </Button>
+                  {canDelete(item.createdBy) && (
+                    <Button variant="ghost" size="icon" onClick={() => handleDelete(item)}>
+                      <Trash2 className="w-4 h-4 text-red-500" />
+                    </Button>
+                  )}
                 </TableCell>
               </TableRow>
             ))

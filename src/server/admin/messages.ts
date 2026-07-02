@@ -8,6 +8,7 @@ import { contactMessagesTable } from "@/integrations/drizzle/schema";
 
 export const listContactMessages = createServerFn({ method: "GET" }).handler(
   async () => {
+    await requireAdminAuth();
     return db
       .select()
       .from(contactMessagesTable)
@@ -18,6 +19,7 @@ export const listContactMessages = createServerFn({ method: "GET" }).handler(
 export const updateContactMessageStatus = createServerFn({ method: "POST" })
   .inputValidator(z.object({ id: z.string(), status: z.string() }))
   .handler(async ({ data }) => {
+    await requireAdminAuth();
     const [message] = await db
       .update(contactMessagesTable)
       .set({ status: data.status })
@@ -29,6 +31,7 @@ export const updateContactMessageStatus = createServerFn({ method: "POST" })
 export const deleteContactMessage = createServerFn({ method: "POST" })
   .inputValidator(z.object({ id: z.string() }))
   .handler(async ({ data }) => {
+    await requireAdminAuth();
     await db
       .delete(contactMessagesTable)
       .where(eq(contactMessagesTable.id, data.id));

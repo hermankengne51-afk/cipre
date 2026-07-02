@@ -6,8 +6,10 @@ export const envServer = createEnv({
     SERVER_URL: z.url().default("http://localhost:3010"),
     // Base de données — requise
     DATABASE_URL: z.url(),
-    // Admin — mot de passe unique + secret de chiffrement de session
-    ADMIN_PASSWORD: z.string().min(8),
+    // Super administrateur — reconnu directement par le système
+    SUPER_ADMIN_EMAIL: z.string().email(),
+    SUPER_ADMIN_PASSWORD: z.string().min(8),
+    // Secret de chiffrement des cookies de session
     AUTH_SECRET: z.string().min(32),
     // Resend — envoi d'emails depuis l'admin (réponses messages/bénévolat)
     RESEND_API_KEY: z.string().optional(),

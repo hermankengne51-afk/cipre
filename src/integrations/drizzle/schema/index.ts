@@ -1,3 +1,4 @@
+export * from "./admin-users.drizzle";
 export * from "./contact-messages.drizzle";
 export * from "./documents.drizzle";
 export * from "./events.drizzle";

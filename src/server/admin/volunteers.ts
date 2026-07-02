@@ -9,6 +9,7 @@ import { volunteerApplicationsTable } from "@/integrations/drizzle/schema";
 export const listVolunteerApplications = createServerFn({
   method: "GET",
 }).handler(async () => {
+  await requireAdminAuth();
   return db
     .select()
     .from(volunteerApplicationsTable)
@@ -20,6 +21,7 @@ export const updateVolunteerApplicationStatus = createServerFn({
 })
   .inputValidator(z.object({ id: z.string(), status: z.string() }))
   .handler(async ({ data }) => {
+    await requireAdminAuth();
     const [application] = await db
       .update(volunteerApplicationsTable)
       .set({ status: data.status })
@@ -31,6 +33,7 @@ export const updateVolunteerApplicationStatus = createServerFn({
 export const deleteVolunteerApplication = createServerFn({ method: "POST" })
   .inputValidator(z.object({ id: z.string() }))
   .handler(async ({ data }) => {
+    await requireAdminAuth();
     await db
       .delete(volunteerApplicationsTable)
       .where(eq(volunteerApplicationsTable.id, data.id));

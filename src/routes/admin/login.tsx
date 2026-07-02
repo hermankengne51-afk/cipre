@@ -9,8 +9,8 @@ import { getAdminAuth, loginAdmin } from "@/lib/auth/admin.functions";
 
 export const Route = createFileRoute("/admin/login")({
   beforeLoad: async () => {
-    const isAuthenticated = await getAdminAuth();
-    if (isAuthenticated) {
+    const auth = await getAdminAuth();
+    if (auth) {
       throw redirect({ to: "/admin" });
     }
   },
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/admin/login")({
 
 function RouteComponent() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
@@ -30,7 +31,7 @@ function RouteComponent() {
     setErrorMessage("");
 
     try {
-      await loginAdmin({ data: { password } });
+      await loginAdmin({ data: { email, password } });
       navigate({ to: "/admin" });
     } catch (err) {
       setStatus("error");
@@ -64,15 +65,29 @@ function RouteComponent() {
           )}
 
           <div>
+            <Label htmlFor="email">Adresse e-mail</Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoFocus
+              autoComplete="email"
+              className="mt-1.5"
+            />
+          </div>
+
+          <div>
             <Label htmlFor="password">Mot de passe</Label>
-            <div className="relative mt-2">
+            <div className="relative mt-1.5">
               <Input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                autoFocus
+                autoComplete="current-password"
                 className="pr-10"
               />
               <button
