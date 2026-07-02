@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { desc, eq } from "drizzle-orm";
 import { db } from "@/integrations/drizzle/db";
+import { requireAdminAuth } from "@/lib/auth/session";
 import {
   contactMessagesTable,
   documentsTable,
@@ -14,6 +15,7 @@ import {
 
 export const getDashboardStats = createServerFn({ method: "GET" }).handler(
   async () => {
+    await requireAdminAuth();
     const [
       totalMessages,
       unreadMessages,

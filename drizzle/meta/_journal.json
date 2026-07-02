@@ -15,6 +15,13 @@
       "when": 1782290535511,
       "tag": "0001_gray_lily_hollister",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1782995225550,
+      "tag": "0002_groovy_kylun",
+      "breakpoints": true
     }
   ]
 }

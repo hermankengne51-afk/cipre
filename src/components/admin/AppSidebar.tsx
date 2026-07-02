@@ -10,7 +10,9 @@ import {
   LogOut,
   Mail,
   Newspaper,
+  ShieldCheck,
 } from "lucide-react";
+import { useAdminAuth } from "@/contexts/auth-context";
 import {
   Sidebar,
   SidebarContent,
@@ -42,6 +44,7 @@ const contentItems = [
 
 export function AppSidebar() {
   const router = useRouter();
+  const auth = useAdminAuth();
 
   const handleLogout = async () => {
     await logoutAdmin();
@@ -107,6 +110,27 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {auth.role === "SUPER_ADMIN" && (
+          <SidebarGroup>
+            <SidebarGroupLabel>Administration</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link
+                      to="/admin/users"
+                      activeProps={{ "data-active": true }}
+                    >
+                      <ShieldCheck />
+                      <span>Administrateurs</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>

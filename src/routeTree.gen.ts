@@ -28,6 +28,7 @@ import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AdminAuthenticatedRouteRouteImport } from './routes/admin/_authenticated/route'
 import { Route as AdminAuthenticatedIndexRouteImport } from './routes/admin/_authenticated/index'
 import { Route as AdminAuthenticatedVolunteersRouteImport } from './routes/admin/_authenticated/volunteers'
+import { Route as AdminAuthenticatedUsersRouteImport } from './routes/admin/_authenticated/users'
 import { Route as AdminAuthenticatedProgramsRouteImport } from './routes/admin/_authenticated/programs'
 import { Route as AdminAuthenticatedPartnersRouteImport } from './routes/admin/_authenticated/partners'
 import { Route as AdminAuthenticatedNewsRouteImport } from './routes/admin/_authenticated/news'
@@ -132,6 +133,11 @@ const AdminAuthenticatedVolunteersRoute =
     path: '/volunteers',
     getParentRoute: () => AdminAuthenticatedRouteRoute,
   } as any)
+const AdminAuthenticatedUsersRoute = AdminAuthenticatedUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminAuthenticatedRouteRoute,
+} as any)
 const AdminAuthenticatedProgramsRoute =
   AdminAuthenticatedProgramsRouteImport.update({
     id: '/programs',
@@ -198,6 +204,7 @@ export interface FileRoutesByFullPath {
   '/admin/news': typeof AdminAuthenticatedNewsRoute
   '/admin/partners': typeof AdminAuthenticatedPartnersRoute
   '/admin/programs': typeof AdminAuthenticatedProgramsRoute
+  '/admin/users': typeof AdminAuthenticatedUsersRoute
   '/admin/volunteers': typeof AdminAuthenticatedVolunteersRoute
   '/admin/': typeof AdminAuthenticatedIndexRoute
 }
@@ -225,6 +232,7 @@ export interface FileRoutesByTo {
   '/admin/news': typeof AdminAuthenticatedNewsRoute
   '/admin/partners': typeof AdminAuthenticatedPartnersRoute
   '/admin/programs': typeof AdminAuthenticatedProgramsRoute
+  '/admin/users': typeof AdminAuthenticatedUsersRoute
   '/admin/volunteers': typeof AdminAuthenticatedVolunteersRoute
   '/admin': typeof AdminAuthenticatedIndexRoute
 }
@@ -254,6 +262,7 @@ export interface FileRoutesById {
   '/admin/_authenticated/news': typeof AdminAuthenticatedNewsRoute
   '/admin/_authenticated/partners': typeof AdminAuthenticatedPartnersRoute
   '/admin/_authenticated/programs': typeof AdminAuthenticatedProgramsRoute
+  '/admin/_authenticated/users': typeof AdminAuthenticatedUsersRoute
   '/admin/_authenticated/volunteers': typeof AdminAuthenticatedVolunteersRoute
   '/admin/_authenticated/': typeof AdminAuthenticatedIndexRoute
 }
@@ -284,6 +293,7 @@ export interface FileRouteTypes {
     | '/admin/news'
     | '/admin/partners'
     | '/admin/programs'
+    | '/admin/users'
     | '/admin/volunteers'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -311,6 +321,7 @@ export interface FileRouteTypes {
     | '/admin/news'
     | '/admin/partners'
     | '/admin/programs'
+    | '/admin/users'
     | '/admin/volunteers'
     | '/admin'
   id:
@@ -339,6 +350,7 @@ export interface FileRouteTypes {
     | '/admin/_authenticated/news'
     | '/admin/_authenticated/partners'
     | '/admin/_authenticated/programs'
+    | '/admin/_authenticated/users'
     | '/admin/_authenticated/volunteers'
     | '/admin/_authenticated/'
   fileRoutesById: FileRoutesById
@@ -498,6 +510,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthenticatedVolunteersRouteImport
       parentRoute: typeof AdminAuthenticatedRouteRoute
     }
+    '/admin/_authenticated/users': {
+      id: '/admin/_authenticated/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminAuthenticatedUsersRouteImport
+      parentRoute: typeof AdminAuthenticatedRouteRoute
+    }
     '/admin/_authenticated/programs': {
       id: '/admin/_authenticated/programs'
       path: '/programs'
@@ -558,6 +577,7 @@ interface AdminAuthenticatedRouteRouteChildren {
   AdminAuthenticatedNewsRoute: typeof AdminAuthenticatedNewsRoute
   AdminAuthenticatedPartnersRoute: typeof AdminAuthenticatedPartnersRoute
   AdminAuthenticatedProgramsRoute: typeof AdminAuthenticatedProgramsRoute
+  AdminAuthenticatedUsersRoute: typeof AdminAuthenticatedUsersRoute
   AdminAuthenticatedVolunteersRoute: typeof AdminAuthenticatedVolunteersRoute
   AdminAuthenticatedIndexRoute: typeof AdminAuthenticatedIndexRoute
 }
@@ -571,6 +591,7 @@ const AdminAuthenticatedRouteRouteChildren: AdminAuthenticatedRouteRouteChildren
     AdminAuthenticatedNewsRoute: AdminAuthenticatedNewsRoute,
     AdminAuthenticatedPartnersRoute: AdminAuthenticatedPartnersRoute,
     AdminAuthenticatedProgramsRoute: AdminAuthenticatedProgramsRoute,
+    AdminAuthenticatedUsersRoute: AdminAuthenticatedUsersRoute,
     AdminAuthenticatedVolunteersRoute: AdminAuthenticatedVolunteersRoute,
     AdminAuthenticatedIndexRoute: AdminAuthenticatedIndexRoute,
   }
